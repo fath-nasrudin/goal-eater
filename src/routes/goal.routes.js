@@ -2,13 +2,14 @@ const router = require('express').Router();
 const asyncHandler = require('express-async-handler');
 
 const GoalController = require('../controllers/goal.controller');
+const { protect } = require('../middlewares/auth.middleware');
 
 router.route('/')
-  .get(asyncHandler(GoalController.getGoals))
-  .post(asyncHandler(GoalController.setGoal));
+  .get(protect, asyncHandler(GoalController.getGoals))
+  .post(protect, asyncHandler(GoalController.setGoal));
 
 router.route('/:id')
-  .put(asyncHandler(GoalController.updateGoal))
-  .delete(asyncHandler(GoalController.deleteGoal));
+  .put(protect, asyncHandler(GoalController.updateGoal))
+  .delete(protect, asyncHandler(GoalController.deleteGoal));
 
 module.exports = router;

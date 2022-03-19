@@ -3,6 +3,10 @@ require('dotenv').config();
 
 const config = require('./config');
 const { errorHandler } = require('./middlewares/error.middleware');
+const connectDB = require('./config/db');
+
+// try to making connection to database
+connectDB();
 
 const app = express();
 
