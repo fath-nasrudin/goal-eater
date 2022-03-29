@@ -60,13 +60,10 @@ class UserController {
     }
 
     res.status(201).json({
-      message: 'User has been registered, please login to start use the service',
-      user: {
         id: savedUser.id,
         name: savedUser.name,
         email: savedUser.email,
         token: generateToken(savedUser.id),
-      },
     });
   }
 

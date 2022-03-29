@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const config = {
   basic: {
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 3030,
   },
   db: {
     uri: process.env.MONGO_URI,

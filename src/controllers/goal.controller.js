@@ -11,7 +11,7 @@ class GoalController {
   static async getGoals(req, res) {
     const goals = await Goal.find().where({ user: req.user.id });
 
-    res.status(200).json({ goals });
+    res.status(200).json(goals);
   }
 
   /**
@@ -33,7 +33,7 @@ class GoalController {
       user: req.user.id,
     });
 
-    res.status(200).json({ goal });
+    res.status(200).json(goal);
   }
 
   /**
@@ -69,10 +69,8 @@ class GoalController {
     const updatedGoal = await Goal.findByIdAndUpdate(id, { text });
 
     // send data to user
-    res.status(200).json({
-      status: 'updated',
-      goal: updatedGoal,
-    });
+    res.status(200).json(updatedGoal,
+    );
   }
 
   /**
@@ -105,10 +103,7 @@ class GoalController {
       throw new Error('Goal not found');
     }
 
-    res.status(200).json({
-      message: 'success deleted Goal',
-      id,
-    });
+    res.status(200).json({id});
   }
 }
 
