@@ -15,6 +15,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors({origin:'*'}))
 // routes
+
+app.get('/', (req, res) => {
+  res.send('welcome to Goal Eater. The documentation is not yet available. Please read our sour code to see how to consume our resources')
+})
+
 app.use('/api', require('./routes'));
 
 app.use(errorHandler);
